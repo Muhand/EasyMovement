@@ -5,12 +5,12 @@ This is a unity library which controls movements of objects with ease. Check exa
 You can check/get the latest release from here [EasyMovement](https://github.com/Muhand/EasyMovement/releases/latest)
 
 ## Including the library in your unity project 
-Create a folder in unity and call it "Plugins"
-Right click on the folder and then select "Import new Asset"
-Navigate to the EasyMovement.dll and select it
-Open your script and include EasyMovement by typing
+1. Create a folder in unity and call it "Plugins"
+2. Right click on the folder and then select "Import new Asset"
+3. Navigate to the EasyMovement.dll and select it
+4. Open your script and include EasyMovement by typing
 `using EasyMovement;`
-and in your FixedUpdate method type
+5. In your FixedUpdate method type
 
 `Move2DObject.translateOverLine();`
 and include the appropriate paramterers in between the parenthesis.
