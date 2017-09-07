@@ -15,7 +15,7 @@ and in your FixedUpdate method type
 `Move2DObject.translateOverLine();`
 and include the appropriate paramterers in between the parenthesis.
 
-Check [Move2DObject](https://github.com/Muhand/EasyMovement/tree/stable/Examples/Move2DObject) example in the Examples folder for more information.
+Check [Move2DObject](https://github.com/Muhand/EasyMovement/tree/stable/Examples/Move2DObject) example in the [Examples](https://github.com/Muhand/EasyMovement/tree/stable/Examples) folder for more information.
 
 ## Contribution
 Contribution to this library is allowed; however, Please include your name and description of what you have done on top of the source file you have developed or updated.
