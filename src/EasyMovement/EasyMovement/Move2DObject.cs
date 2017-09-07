@@ -22,11 +22,15 @@ namespace EasyMovement
             {
                 //Calculate Slope => (y1-y2)/(x1-x2)
                 slope = (objectToTransform.transform.position.y - direction.y) / (objectToTransform.transform.position.x - direction.x);
-                print("Slope: " + slope);
+
+                //For debug
+                //print("Slope: " + slope);
 
                 //Calculate Y Intercept => y1-x1*m
                 yintercept = objectToTransform.transform.position.y - (objectToTransform.transform.position.x * slope);
-                print("Y Intercept: " + yintercept);
+
+                //For Debug
+                //print("Y Intercept: " + yintercept);
 
                 //Next X
                 if (direction.x > 0)
@@ -34,11 +38,14 @@ namespace EasyMovement
                 else
                     nextX = objectToTransform.transform.position.x - step;
 
-                print("Next X is: " + nextX);
+                //For debug
+                //print("Next X is: " + nextX);
 
                 //Calculate next Y
                 nextY = (slope * nextX) + yintercept;
-                print("Next y is: " + nextY);
+
+                //For debug
+                //print("Next y is: " + nextY);
 
                 //Move
                 objectToTransform.transform.position = Vector3.MoveTowards(objectToTransform.transform.position, new Vector3(nextX, nextY, 0), speed * Time.deltaTime);
