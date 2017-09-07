@@ -25,6 +25,6 @@ This is necessary so I can credit you
 Additionally, please take development to their appropriate branch.
 
 ## License
-This project is under MIT license, you are free to do whatever you like with this project including commercial use as long as you provide attribution back to the author as well as including the [LICENSE.md](LICENSE.md) file in this repository within your project.
+This project is under MIT license, you are free to do whatever you like with this project including commercial use as long as you provide attribution back to the author as well as including the [LICENSE](LICENSE) file in this repository within your project.
 
-Please see [LICENSE.md](LICENSE.md) file for details for more details
+Please see [LICENSE](LICENSE) file for details for more details
