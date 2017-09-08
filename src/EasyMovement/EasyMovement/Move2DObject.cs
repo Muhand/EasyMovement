@@ -93,5 +93,83 @@ namespace EasyMovement
                 }
             }
         }
+
+        public static void translateOverLine2(GameObject objectToTransform, Vector3 direction, float step, float speed)
+        {
+            if ((direction.x - objectToTransform.transform.position.x != 0) && (direction.y - objectToTransform.transform.position.y != 0))
+            {
+                //Calculate Slope => (y1-y2)/(x1-x2)
+                slope = (objectToTransform.transform.position.y - direction.y) / (objectToTransform.transform.position.x - direction.x);
+
+                //For debug
+                //print("Slope: " + slope);
+
+                //Calculate Y Intercept => y1-x1*m
+                yintercept = objectToTransform.transform.position.y - (objectToTransform.transform.position.x * slope);
+
+                //For Debug
+                //print("Y Intercept: " + yintercept);
+
+                //Next X
+                if (direction.x > 0)
+                    nextX = objectToTransform.transform.position.x + step;
+                else
+                    nextX = objectToTransform.transform.position.x - step;
+
+                //For debug
+                //print("Next X is: " + nextX);
+
+                //Calculate next Y
+                nextY = (slope * nextX) + yintercept;
+
+                //For debug
+                //print("Next y is: " + nextY);
+
+                //Move
+                objectToTransform.transform.position = Vector3.MoveTowards(objectToTransform.transform.position, new Vector3(nextX, nextY, 0), speed * Time.fixedDeltaTime);
+            }
+            else
+            {
+                if ((direction.x - objectToTransform.transform.position.x == 0) && (direction.y - objectToTransform.transform.position.y == 0))
+                {
+                    //We are at the same position as the objective, therefore just return
+                    return;
+                }
+                if (direction.x - objectToTransform.transform.position.x == 0)
+                {
+                    //If difference in X is 0 then we are at the same x point so we are moving vertically; therefore just move up or down depending on target's Y
+
+                    if (direction.y > 0)
+                    {
+                        nextY = objectToTransform.transform.position.y + step;
+
+                        objectToTransform.transform.position = Vector3.MoveTowards(objectToTransform.transform.position, new Vector3(objectToTransform.transform.position.x, nextY, 0), speed * Time.fixedDeltaTime);
+                    }
+                    else if (direction.y < 0)
+                    {
+                        nextY = objectToTransform.transform.position.y - step;
+
+                        objectToTransform.transform.position = Vector3.MoveTowards(objectToTransform.transform.position, new Vector3(objectToTransform.transform.position.x, nextY, 0), speed * Time.fixedDeltaTime);
+                    }
+
+                }
+                else if (direction.y - objectToTransform.transform.position.y == 0)
+                {
+                    if (direction.x > 0)
+                    {
+                        nextX = objectToTransform.transform.position.x + step;
+
+                        objectToTransform.transform.position = Vector3.MoveTowards(objectToTransform.transform.position, new Vector3(nextX, objectToTransform.transform.position.y, 0), speed * Time.fixedDeltaTime);
+                    }
+                    else if (direction.y < 0)
+                    {
+                        nextX = objectToTransform.transform.position.x - step;
+
+                        objectToTransform.transform.position = Vector3.MoveTowards(objectToTransform.transform.position, new Vector3(nextX, objectToTransform.transform.position.y, 0), speed * Time.fixedDeltaTime);
+                    }
+
+                }
+            }
+        }
     }
 }
