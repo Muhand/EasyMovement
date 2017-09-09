@@ -16,6 +16,13 @@ namespace EasyMovement
         private static float nextY;
         private static float nextX;
 
+        /// <summary>
+        /// This function translates objects from its current position forever in a specific direction.
+        /// </summary>
+        /// <param name="objectToTransform">The object you would like to transform</param>
+        /// <param name="direction">The direction the object should be moved in</param>
+        /// <param name="step">How many steps should the object take</param>
+        /// <param name="speed">The travel speed the object should take</param>
         public static void translateOverLine(GameObject objectToTransform, Vector3 direction, float step, float speed)
         {
             if ((direction.x - objectToTransform.transform.position.x != 0) && (direction.y - objectToTransform.transform.position.y != 0))
@@ -94,6 +101,13 @@ namespace EasyMovement
             }
         }
 
+        /// <summary>
+        /// Same as translateOverLine() but this function uses fixedDeltaTime()
+        /// </summary>
+        /// <param name="objectToTransform">The object you would like to transform</param>
+        /// <param name="direction">The direction the object should be moved in</param>
+        /// <param name="step">How many steps should the object take</param>
+        /// <param name="speed">The travel speed the object should take</param>
         public static void translateOverLine2(GameObject objectToTransform, Vector3 direction, float step, float speed)
         {
             if ((direction.x - objectToTransform.transform.position.x != 0) && (direction.y - objectToTransform.transform.position.y != 0))
@@ -170,6 +184,24 @@ namespace EasyMovement
 
                 }
             }
+        }
+
+        /// <summary>
+        /// Returns distance between pos1 and pos2 in a float format.
+        /// </summary>
+        /// <param name="pos1">Distance of the first 2D vector</param>
+        /// <param name="pos2">Distance of the second 2D vector</param>
+        /// <returns></returns>
+        public static float getDistance(Vector2 pos1, Vector2 pos2)
+        {
+            float result = -1;
+
+            float term1 = pos2.x - pos1.x;
+            float term2 = pos2.y - pos1.y;
+
+            result = Mathf.Sqrt(Mathf.Pow(term1, 2) + Mathf.Pow(term2, 2));
+
+            return result;
         }
     }
 }
